@@ -1,0 +1,71 @@
+---
+title: "Defeating Nondeterminism in Your Writing Workflow"
+author: "Your Name in collaboration with others"
+date: "2026-06-20"
+---
+
+Today's leading language models contain upwards of a trillion parameters,
+pretrained on tens of trillions of tokens. The transformer architecture that
+underpins them [@vaswani2017attention] keeps improving with scale, as these
+trillions are necessary for learning and representing all the patterns in
+written-down human knowledge.
+
+::: {.column-margin}
+This is a **margin note** — an unnumbered aside that lives in the right margin,
+just like on the reference site. Use it for tangents, definitions, or asides.
+:::
+
+In contrast, post-training involves smaller datasets and generally focuses on
+narrower domains of knowledge.[^post-training] This post is a placeholder that
+demonstrates the typography and layout of the blog, including citations,
+footnotes, and sidenotes.
+
+[^post-training]: This sentence is anchored by a numbered footnote. Because the
+    blog sets `reference-location: margin`, it renders as a sidenote in the
+    margin rather than at the bottom of the page.
+
+## A second-level heading
+
+Body copy is set in Iowan Old Style at 17px with a generous line height, matching
+the reference design. Links like [this one](https://example.com) pick up the
+subtle underline treatment, and inline `code` is rendered in red monospace.
+
+### An italic third-level heading
+
+Lists use square bullets:
+
+- First point about something interesting
+- Second point with a bit more detail
+- Third point to round things out
+
+> Block quotes are styled with a thin left rule and a muted foreground color,
+> exactly as on the reference site.
+
+## Math and code
+
+Inline math such as $e^{i\pi} + 1 = 0$ renders via KaTeX, and display math works too:
+
+$$
+\mathcal{L}(\theta) = \mathbb{E}_{x \sim \mathcal{D}}\big[ -\log p_\theta(x) \big]
+$$
+
+A fenced code block, here distilling a teacher into a student [@hinton2015distilling]:
+
+```python
+def distill(student, teacher, batch):
+    logits_s = student(batch)
+    logits_t = teacher(batch).detach()
+    return kl_divergence(logits_s, logits_t)
+```
+
+## Closing thoughts
+
+Replace this file with your real writing. New posts dropped into `posts/` show up
+on the blogroll automatically. Add references to `references.bib` and cite them
+with `[@key]`; footnotes (`[^id]`) and `::: {.column-margin}` blocks both surface
+in the right margin.
+
+## References
+
+::: {#refs}
+:::

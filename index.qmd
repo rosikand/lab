@@ -1,0 +1,16 @@
+---
+pagetitle: "Connectionism"
+page-layout: full
+listing:
+  id: blog-listing
+  contents: posts
+  sort: "date desc"
+  template: _ejs/blogroll.ejs
+  date-format: "MMM D, YYYY"
+  fields: [title, date, author, path]
+---
+
+::: {.tm-shell}
+::: {#blog-listing}
+:::
+:::

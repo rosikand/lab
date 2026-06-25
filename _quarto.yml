@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - fonts/
+
+website:
+  title: "Connectionism"
+  # No navbar / no site chrome — just the blogroll and posts.
+  search: false
+  page-navigation: false
+
+bibliography: references.bib
+# Footnotes render as right-margin sidenotes (Tufte / TM style); citations stay
+# inline and link to the reference list at the bottom of the post.
+reference-location: margin
+citation-location: document
+link-citations: true
+
+format:
+  html:
+    theme: theme.scss
+    toc: false
+    anchor-sections: true
+    link-external-newwindow: true
+    html-math-method: katex
+    # Default layout (blogroll / index): no margin column, content stays centered.
+    # Posts opt into the margin layout in posts/_metadata.yml.
+    page-layout: full
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="/">

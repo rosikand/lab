@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Connectionism",
+    "section": "",
+    "text": "Jun 20, 2026\n\n\nDefeating Nondeterminism in Your Writing Workflow\n\n\nYour Name in collaboration with others\n\nJun 20, 2026\n\n\n\n\n May 2, 2026\n\n\nModular Manifolds: A Short Note\n\n\nJane Researcher\n\nMay 2, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Defeating Nondeterminism in Your Writing Workflow",
+    "section": "",
+    "text": "Today’s leading language models contain upwards of a trillion parameters, pretrained on tens of trillions of tokens. The transformer architecture that underpins them (Vaswani et al. 2017) keeps improving with scale, as these trillions are necessary for learning and representing all the patterns in written-down human knowledge.\nIn contrast, post-training involves smaller datasets and generally focuses on narrower domains of knowledge.1 This post is a placeholder that demonstrates the typography and layout of the blog, including citations, footnotes, and sidenotes."
+  },
+  {
+    "objectID": "posts/welcome/index.html#a-second-level-heading",
+    "href": "posts/welcome/index.html#a-second-level-heading",
+    "title": "Defeating Nondeterminism in Your Writing Workflow",
+    "section": "A second-level heading",
+    "text": "A second-level heading\nBody copy is set in Iowan Old Style at 17px with a generous line height, matching the reference design. Links like this one pick up the subtle underline treatment, and inline code is rendered in red monospace.\n\nAn italic third-level heading\nLists use square bullets:\n\nFirst point about something interesting\nSecond point with a bit more detail\nThird point to round things out\n\n\nBlock quotes are styled with a thin left rule and a muted foreground color, exactly as on the reference site."
+  },
+  {
+    "objectID": "posts/welcome/index.html#math-and-code",
+    "href": "posts/welcome/index.html#math-and-code",
+    "title": "Defeating Nondeterminism in Your Writing Workflow",
+    "section": "Math and code",
+    "text": "Math and code\nInline math such as e^{i\\pi} + 1 = 0 renders via KaTeX, and display math works too:\n\n\\mathcal{L}(\\theta) = \\mathbb{E}_{x \\sim \\mathcal{D}}\\big[ -\\log p_\\theta(x) \\big]\n\nA fenced code block, here distilling a teacher into a student (Hinton, Vinyals, and Dean 2015):\ndef distill(student, teacher, batch):\n    logits_s = student(batch)\n    logits_t = teacher(batch).detach()\n    return kl_divergence(logits_s, logits_t)"
+  },
+  {
+    "objectID": "posts/welcome/index.html#closing-thoughts",
+    "href": "posts/welcome/index.html#closing-thoughts",
+    "title": "Defeating Nondeterminism in Your Writing Workflow",
+    "section": "Closing thoughts",
+    "text": "Closing thoughts\nReplace this file with your real writing. New posts dropped into posts/ show up on the blogroll automatically. Add references to references.bib and cite them with [@key]; footnotes ([^id]) and ::: {.column-margin} blocks both surface in the right margin."
+  },
+  {
+    "objectID": "posts/welcome/index.html#references",
+    "href": "posts/welcome/index.html#references",
+    "title": "Defeating Nondeterminism in Your Writing Workflow",
+    "section": "References",
+    "text": "References\n\n\nHinton, Geoffrey, Oriol Vinyals, and Jeff Dean. 2015. “Distilling the Knowledge in a Neural Network.” arXiv Preprint arXiv:1503.02531.\n\n\nVaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. “Attention Is All You Need.” Advances in Neural Information Processing Systems."
+  },
+  {
+    "objectID": "posts/sample-research/index.html",
+    "href": "posts/sample-research/index.html",
+    "title": "Modular Manifolds: A Short Note",
+    "section": "",
+    "text": "This is a second sample post so the blogroll has more than one entry. It exists purely to show how multiple posts stack in the listing, sorted newest-first."
+  },
+  {
+    "objectID": "posts/sample-research/index.html#why-this-matters",
+    "href": "posts/sample-research/index.html#why-this-matters",
+    "title": "Modular Manifolds: A Short Note",
+    "section": "Why this matters",
+    "text": "Why this matters\nConstraining weight matrices to well-conditioned manifolds can make optimization better behaved. The details are left as an exercise; this paragraph is here to give the page some body text and demonstrate spacing between sections.\nDelete this post once you start writing your own."
+  }
+]

@@ -1,0 +1,12 @@
+# Shared settings for all posts
+format:
+  html:
+    # Article layout gives posts the right-hand margin column for sidenotes,
+    # while the blogroll index stays full-width/centered.
+    page-layout: article
+    grid:
+      body-width: 680px
+      margin-width: 260px
+      gutter-width: 2rem
+    toc: false
+title-block-style: default

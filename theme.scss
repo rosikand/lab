@@ -1,0 +1,380 @@
+/*-- scss:defaults --*/
+// ── Base typography / Bootstrap overrides ────────────────────────────────────
+$font-family-serif:      'Iowan Old Style BT', Georgia, serif;
+$font-family-sans-serif: 'GT America', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-monospace:  SFMono-Regular, 'SF Mono', ui-monospace, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+$font-family-base:       $font-family-serif;
+
+$font-size-root:   17px;
+$line-height-base: 1.6;
+
+$body-bg:    #ffffff;
+$body-color: #282828;
+
+$headings-font-family: $font-family-serif;
+$headings-font-weight: 600;
+$headings-line-height: 1.4;
+
+$link-color:            #282828;
+$link-decoration:       underline;
+$link-hover-color:      #504945;
+$code-color:            #AD2111;
+$code-bg:               transparent;
+
+// Disable Bootstrap container padding noise; we control widths ourselves.
+$grid-gutter-width: 0;
+
+/*-- scss:rules --*/
+
+// ── Color tokens (mirrors thinkingmachines.ai) ───────────────────────────────
+:root {
+  --bg: #ffffff;
+  --bg_code: #f3f3f2;
+  --fg: #282828;
+  --fg1: #3c3836;
+  --fg2: #504945;
+  --fg3: #6b6866;
+  --fg4: #676767;
+  --fg5: #969696;
+  --red: #AD2111;
+  --green: #9CC355;
+  --blue: #0E9EE4;
+  --font-sans: #{$font-family-sans-serif};
+}
+
+// ── Fonts (self-hosted, identical files to the reference site) ────────────────
+@font-face { font-family:'GT America'; font-style:normal; font-weight:300; font-display:swap;
+  src:url('/fonts/gt-america/GT-America-Standard-Light.woff2') format('woff2'); }
+@font-face { font-family:'GT America'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('/fonts/gt-america/GT-America-Standard-Regular.woff2') format('woff2'); }
+@font-face { font-family:'GT America'; font-style:italic; font-weight:400; font-display:swap;
+  src:url('/fonts/gt-america/GT-America-Standard-Regular-Italic.woff2') format('woff2'); }
+@font-face { font-family:'GT America'; font-style:normal; font-weight:500; font-display:swap;
+  src:url('/fonts/gt-america/GT-America-Standard-Medium.woff2') format('woff2'); }
+@font-face { font-family:'GT America'; font-style:italic; font-weight:500; font-display:swap;
+  src:url('/fonts/gt-america/GT-America-Standard-Medium-Italic.woff2') format('woff2'); }
+@font-face { font-family:'GT America'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('/fonts/gt-america/GT-America-Standard-Bold.woff2') format('woff2'); }
+@font-face { font-family:'GT America'; font-style:italic; font-weight:700; font-display:swap;
+  src:url('/fonts/gt-america/GT-America-Standard-Bold-Italic.woff2') format('woff2'); }
+
+@font-face { font-family:'Iowan Old Style BT'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('/fonts/iowan-old-style/iowan-old-style_regular.woff2') format('woff2'); }
+@font-face { font-family:'Iowan Old Style BT'; font-style:italic; font-weight:400; font-display:swap;
+  src:url('/fonts/iowan-old-style/iowan-old-style_italic.woff2') format('woff2'); }
+@font-face { font-family:'Iowan Old Style BT'; font-style:normal; font-weight:700; font-display:swap;
+  src:url('/fonts/iowan-old-style/iowan-old-style_bold.woff2') format('woff2'); }
+@font-face { font-family:'Iowan Old Style BT'; font-style:italic; font-weight:700; font-display:swap;
+  src:url('/fonts/iowan-old-style/iowan-old-style_bold-italic.woff2') format('woff2'); }
+@font-face { font-family:'Iowan Old Style BT'; font-style:normal; font-weight:900; font-display:swap;
+  src:url('/fonts/iowan-old-style/iowan-old-style_black.woff2') format('woff2'); }
+@font-face { font-family:'Iowan Old Style BT'; font-style:italic; font-weight:900; font-display:swap;
+  src:url('/fonts/iowan-old-style/iowan-old-style_black-italic.woff2') format('woff2'); }
+
+@font-face { font-family:'Chakra Petch'; font-style:normal; font-weight:400; font-display:swap;
+  src:url('/fonts/chakra-petch/chakra-petch-v12-latin-regular.woff2') format('woff2'); }
+@font-face { font-family:'Chakra Petch'; font-style:normal; font-weight:500; font-display:swap;
+  src:url('/fonts/chakra-petch/chakra-petch-v12-latin-500.woff2') format('woff2'); }
+@font-face { font-family:'Chakra Petch'; font-style:normal; font-weight:600; font-display:swap;
+  src:url('/fonts/chakra-petch/chakra-petch-v12-latin-600.woff2') format('woff2'); }
+
+body {
+  font-family: 'Iowan Old Style BT', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+// Strip Quarto's default top navbar / footer chrome (we only want posts + blogroll)
+.quarto-secondary-nav, .nav-footer, #quarto-header, .quarto-title-banner { display: none !important; }
+
+// Body width / centering is handled by Quarto's `grid` (body-width + margin-width)
+// so the right-hand margin column stays available for sidenotes. We only nudge
+// the title block, which sits outside the grid body, to align with the content.
+#title-block-header.quarto-title-block { max-width: 680px; margin-left: auto; margin-right: auto; }
+
+// ════════════════════════════════════════════════════════════════════════════
+//  BLOGROLL  (index page)
+// ════════════════════════════════════════════════════════════════════════════
+.tm-shell {
+  max-width: 660px;
+  margin: 2.5rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.tm-shell h1.blog-page-title,
+h1.blog-page-title {
+  font-family: var(--font-sans) !important;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  text-align: left;
+  margin: 0;
+  padding-top: 1rem;
+  line-height: 1.1;
+  color: var(--fg);
+  border-bottom: none;
+}
+
+.tm-intro {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--fg4);
+  margin-top: 0.75rem;
+}
+
+.tm-blogroll .post-group { max-width: 660px; }
+
+.tm-blogroll .post-group ul {
+  list-style-type: none;
+  padding: 1.6rem 0 0 0;
+  margin: 0;
+}
+
+.tm-blogroll .post-group ul li {
+  margin-bottom: 0;
+  position: relative;
+  padding-bottom: 0.4rem;
+}
+.tm-blogroll .post-group ul li + li { padding-top: 0.4rem; }
+.tm-blogroll .post-group ul li + li::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  border-top: 1px solid color-mix(in srgb, var(--fg4) 10%, transparent);
+  pointer-events: none;
+}
+
+.tm-blogroll .post-item-link {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  line-height: 1.4;
+  padding: 1.2rem 1.5rem;
+  margin: 0 -1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.tm-blogroll .desktop-time {
+  text-align: left;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  color: var(--fg4);
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+}
+
+.tm-blogroll .post-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+
+.tm-blogroll .post-title {
+  color: var(--fg);
+  font-size: 17px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+.tm-blogroll .author-date {
+  display: block;
+  font-size: 15px;
+  color: var(--fg4);
+  font-family: var(--font-sans);
+}
+
+.tm-blogroll .mobile-time { display: none; }
+
+.tm-blogroll .post-item-link:hover .post-title {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--fg2) 20%, transparent);
+  text-underline-offset: 2px;
+}
+.tm-blogroll .post-item-link:hover .author-date,
+.tm-blogroll .post-item-link:hover .desktop-time {
+  color: var(--fg3);
+}
+
+@media screen and (max-width: 767px) {
+  .tm-blogroll .post-item-link {
+    display: block;
+    padding: 1rem 1.6rem;
+    margin: 0 -1.6rem;
+  }
+  .tm-blogroll .desktop-time { display: none; }
+  .tm-blogroll .mobile-time {
+    display: block;
+    font-size: 15px;
+    color: var(--fg4);
+    font-family: var(--font-sans);
+  }
+}
+
+// ════════════════════════════════════════════════════════════════════════════
+//  POST PAGES
+// ════════════════════════════════════════════════════════════════════════════
+// Title block — centered, serif title, sans metadata (no labels), like TM.
+#title-block-header.quarto-title-block { text-align: center; }
+
+#title-block-header .quarto-title h1.title {
+  font-family: 'Iowan Old Style BT', Georgia, serif;
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 1.4;
+  max-width: 570px;
+  margin: 1.5rem auto 0;
+}
+
+.quarto-title-meta {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  color: var(--fg3);
+  font-size: 15px;
+  line-height: 17px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-sans);
+}
+// Hide Quarto's "Author" / "Published" labels.
+.quarto-title-meta .quarto-title-meta-heading { display: none; }
+.quarto-title-meta .quarto-title-meta-contents { font-family: var(--font-sans); }
+.quarto-title-meta .quarto-title-meta-contents p { margin: 0; }
+// Quarto 1.7 renders each meta block as a bare <div> (no -author/-date class),
+// so target by position: first block = author(s), last block = date.
+.quarto-title-meta > div:first-child .quarto-title-meta-contents {
+  font-size: 15px;
+  line-height: 21px;
+  letter-spacing: 0.24px;
+  color: var(--fg);
+}
+.quarto-title-meta > div:first-child .quarto-title-meta-contents a { color: inherit; text-decoration: none; }
+.quarto-title-meta > div:first-child .quarto-title-meta-contents a:hover {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--fg) 20%, transparent);
+  text-underline-offset: 2px;
+}
+.quarto-title-meta > div:last-child .quarto-title-meta-contents { padding-top: 0.6em; color: var(--fg3); }
+
+// ── Body content typography ──────────────────────────────────────────────────
+.quarto-title-block + * p, main.content p { margin-bottom: 1.45rem; }
+
+main.content a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--fg4) 30%, transparent);
+  transition: color .3s ease-in-out, text-decoration-color .3s ease-in-out;
+}
+main.content a:hover {
+  color: var(--fg2);
+  text-decoration-color: color-mix(in srgb, var(--fg2) 30%, transparent);
+}
+
+main.content h1, main.content h2 {
+  font-family: 'Iowan Old Style BT', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.4;
+}
+main.content h1 { font-size: 30px; margin: 2.8rem 0 1rem; border-bottom: none; padding-bottom: 0; }
+main.content h2 { font-size: 1.45rem; margin: 1.6em 0 0.6em; border-bottom: none; padding-bottom: 0; }
+main.content h3 {
+  font-family: 'Iowan Old Style BT', Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  font-style: italic;
+  margin: 1.4em 0 0.5em;
+  line-height: 1.4;
+}
+main.content h4 {
+  font-size: 0.97rem; font-weight: normal; font-style: italic; margin: 1.4em 0 0.7em;
+}
+
+main.content ul { list-style: square; margin-left: 1.5rem; margin-top: 1rem; margin-bottom: 1.2rem; }
+main.content ol { list-style: decimal; margin-left: 2rem; margin-top: 1rem; margin-bottom: 1.2rem; }
+main.content li { margin-bottom: 0.2rem; }
+
+main.content blockquote {
+  border-left: 2px solid color-mix(in srgb, var(--fg4) 35%, var(--bg) 65%);
+  color: var(--fg2);
+  font-style: normal;
+  margin: 1.6rem 0 1.6rem 1rem;
+  padding: 0.1rem 0 0.1rem 1.25rem;
+}
+
+// Inline + block code (Gruvbox-ish, matches reference)
+main.content code:not(.sourceCode), main.content p code {
+  color: var(--red);
+  font-family: #{$font-family-monospace};
+  font-size: 0.9em;
+  padding: 0 0.2rem;
+}
+main.content pre, div.sourceCode {
+  background-color: var(--bg_code) !important;
+  border: none;
+  border-radius: 0.45rem;
+  padding: 1rem;
+}
+main.content pre code {
+  color: var(--fg2);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+main.content table { border-collapse: collapse; margin: auto; }
+main.content table td, main.content table th { border: 1px solid var(--fg4); padding: 0.75rem; }
+main.content table th { background-color: #f3f3f2; font-weight: bold; }
+
+main.content img { max-width: 100%; }
+
+// ── Sidenotes / margin notes (citations + footnotes pushed to the margin) ─────
+// TM-style: small sans-serif, muted, set in the right-hand margin column.
+.column-margin,
+.column-margin .footnote-ref,
+.aside,
+aside {
+  font-family: var(--font-sans) !important;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg3);
+}
+.column-margin p, aside p { margin-bottom: 0.6rem; }
+// The little superscript number in the body that anchors a sidenote.
+.margin-ref-marker,
+sup, .footnote-ref {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--fg);
+  text-decoration: none;
+}
+.column-margin a, aside a { color: var(--fg2); }
+// Margin citations / reference list links.
+.column-margin .csl-entry { margin-bottom: 0.6rem; }
+
+// ── Bibliography / references section at the foot of a post ───────────────────
+#refs, div.csl-bib-body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fg2);
+  margin-top: 2.5rem;
+}
+#refs .csl-entry { margin-bottom: 0.8rem; }
+
+// Footer credit (kept minimal, sans)
+.tm-footer {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--fg5);
+  text-align: center;
+  margin: 5rem 0 2rem;
+}
