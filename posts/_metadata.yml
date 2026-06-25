@@ -5,8 +5,14 @@ format:
     # while the blogroll index stays full-width/centered.
     page-layout: article
     grid:
+      sidebar-width: 240px   # left column — holds the table of contents
       body-width: 680px
-      margin-width: 260px
+      margin-width: 260px    # right column — holds sidenotes
       gutter-width: 2rem
-    toc: false
+    # TOC is on by default and sits in the left column. To disable it for a
+    # single post, add `toc: false` to that post's YAML front matter.
+    toc: true
+    toc-location: left
+    toc-title: "Contents"
+    toc-depth: 3
 title-block-style: default

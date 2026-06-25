@@ -2,6 +2,7 @@
 title: "Modular Manifolds: A Short Note"
 author: "Jane Researcher"
 date: "2026-05-02"
+toc: false   # this short post opts out of the table of contents
 ---
 
 This is a second sample post so the blogroll has more than one entry. It exists
