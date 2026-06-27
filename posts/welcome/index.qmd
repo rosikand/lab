@@ -2,6 +2,7 @@
 title: "Defeating Nondeterminism in Your Writing Workflow"
 author: "Your Name in collaboration with others"
 date: "2026-06-20"
+description: "A placeholder post demonstrating the blog's typography, citations, footnotes, and sidenotes."
 ---
 
 Today's leading language models contain upwards of a trillion parameters,

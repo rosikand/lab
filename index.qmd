@@ -7,10 +7,16 @@ listing:
   sort: "date desc"
   template: _ejs/blogroll.ejs
   date-format: "MMM D, YYYY"
-  fields: [title, date, author, path]
+  fields: [title, date, description, path]
 ---
 
 ::: {.tm-shell}
+# Research lab {.blog-page-title}
+
+::: {.tm-intro}
+A collection of notes, experiments, and writing on machine learning.
+:::
+
 ::: {#blog-listing}
 :::
 :::

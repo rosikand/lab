@@ -2,9 +2,23 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Connectionism",
+    "title": "Research lab",
     "section": "",
-    "text": "Jun 20, 2026\n\n\nDefeating Nondeterminism in Your Writing Workflow\n\n\nYour Name in collaboration with others\n\nJun 20, 2026\n\n\n\n\n May 2, 2026\n\n\nModular Manifolds: A Short Note\n\n\nJane Researcher\n\nMay 2, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Research lab\n\nA collection of notes, experiments, and writing on machine learning.\n\n\n\n\n\n\n Jun 27, 2026\n\n\nResearch Interests\n\n\nAn overview of the topics and questions this lab is currently working on.\n\nJun 27, 2026\n\n\n\n\n Jun 20, 2026\n\n\nDefeating Nondeterminism in Your Writing Workflow\n\n\nA placeholder post demonstrating the blog’s typography, citations, footnotes, and sidenotes.\n\nJun 20, 2026\n\n\n\n\n May 2, 2026\n\n\nModular Manifolds: A Short Note\n\n\nA short second post on constraining weight matrices to well-conditioned manifolds.\n\nMay 2, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/sample-research/index.html",
+    "href": "posts/sample-research/index.html",
+    "title": "Modular Manifolds: A Short Note",
+    "section": "",
+    "text": "This is a second sample post so the blogroll has more than one entry. It exists purely to show how multiple posts stack in the listing, sorted newest-first."
+  },
+  {
+    "objectID": "posts/sample-research/index.html#why-this-matters",
+    "href": "posts/sample-research/index.html#why-this-matters",
+    "title": "Modular Manifolds: A Short Note",
+    "section": "Why this matters",
+    "text": "Why this matters\nConstraining weight matrices to well-conditioned manifolds can make optimization better behaved. The details are left as an exercise; this paragraph is here to give the page some body text and demonstrate spacing between sections.\nDelete this post once you start writing your own."
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -42,17 +56,10 @@
     "text": "References\n\n\nHinton, Geoffrey, Oriol Vinyals, and Jeff Dean. 2015. “Distilling the Knowledge in a Neural Network.” arXiv Preprint arXiv:1503.02531.\n\n\nVaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. “Attention Is All You Need.” Advances in Neural Information Processing Systems."
   },
   {
-    "objectID": "posts/sample-research/index.html",
-    "href": "posts/sample-research/index.html",
-    "title": "Modular Manifolds: A Short Note",
+    "objectID": "posts/research-interests/index.html",
+    "href": "posts/research-interests/index.html",
+    "title": "Research Interests",
     "section": "",
-    "text": "This is a second sample post so the blogroll has more than one entry. It exists purely to show how multiple posts stack in the listing, sorted newest-first."
-  },
-  {
-    "objectID": "posts/sample-research/index.html#why-this-matters",
-    "href": "posts/sample-research/index.html#why-this-matters",
-    "title": "Modular Manifolds: A Short Note",
-    "section": "Why this matters",
-    "text": "Why this matters\nConstraining weight matrices to well-conditioned manifolds can make optimization better behaved. The details are left as an exercise; this paragraph is here to give the page some body text and demonstrate spacing between sections.\nDelete this post once you start writing your own."
+    "text": "Write your post here."
   }
 ]

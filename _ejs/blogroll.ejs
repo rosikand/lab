@@ -2,13 +2,12 @@
 <div class="post-group">
 <ul>
 <% for (const item of items) { %>
-<% const authors = Array.isArray(item.author) ? item.author.join(", ") : item.author; %>
 <li>
 <a class="post-item-link" href="<%- item.path %>">
 <time class="desktop-time"><%= item.date %></time>
 <div class="post-info">
 <div class="post-title"><%= item.title %></div>
-<% if (authors) { %><div class="author-date"><%= authors %></div><% } %>
+<% if (item.description) { %><div class="author-date"><%= item.description %></div><% } %>
 <time class="mobile-time"><%= item.date %></time>
 </div>
 </a>

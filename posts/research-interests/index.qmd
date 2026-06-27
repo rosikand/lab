@@ -1,0 +1,8 @@
+---
+title: "Research Interests"
+author: "Your Name"
+date: "2026-06-27"
+description: "An overview of the topics and questions this lab is currently working on."
+---
+
+Write your post here.
