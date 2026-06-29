@@ -3,8 +3,10 @@ title: "RL on Cartridges"
 author: "Your Name"
 date: "2026-06-28"
 description: "Continual Online Adapters to new Tasks via Modular Experience Cartridges through Reinforcement Learning"
-toc: true 
-toc-location: left
+# TOC (left, on by default for HTML) comes from posts/_metadata.yml; the PDF omits it.
+format:
+  html:
+    toc-location: left
 ---
 
 
@@ -86,12 +88,14 @@ Cover:
 
 We'd want to test things like: 
 
-- **RQ1 (RL on Cartridges)**: can we improve on a task with just RL'ing the cartridge without modifying the base model itself? 
-- **RQ2 (OOD Generalization)**: can we add OOD information/context/hints into the cartridge, that doesn't exist in the base policy, to then reinforce during RLVR? Thereby expanding support/pass@k? 
+- **RQ1 (RL on Cartridges)**: can we improve on a task with just RL'ing the cartridge without modifying the base model itself? That is, can reinforcement learning applied only to an experience cartridge achieve task adaptation comparable to updating the full model or a LoRA adapter?
+- **RQ2 (OOD Generalization)**: can we add OOD information/context/hints[^pope] into the cartridge, that doesn't exist in the base policy, to then reinforce during RLVR? Thereby expanding support/pass@k? 
 - **RQ3: (Continual Learning)**: can we sequentially train on new tasks via new cartridges without degrading performance or inducing catastrophic forgetting? 
     - Could also be good to analyze the weight space geometry/sparsity of the updates (i.e., SFT forgets, RL doesn't) 
 - **RQ4 (Self-distillation)**: Cartridge OPSD: Use on-policy self-distillation to continually compile privileged experience into a trainable cartridge while keeping the base model frozen. Compare with RL optimizer. 
 
+
+[^pope]: For more on distilling hints into the policy to induce a learning signal for RL to reinforce, see [@qu2026pope]. 
 
 ## Experiments 
 

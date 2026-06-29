@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Your Name">
-<meta name="dcterms.date" content="2026-06-27">
-<meta name="description" content="An overview of the topics and questions this lab is currently working on.">
+<meta name="dcterms.date" content="2026-06-29">
+<meta name="description" content="A one-line description shown under the title on the blogroll.">
 
-<title>Research Interests – Connectionism</title>
+<title>Counterfactual Visual GRPO – Connectionism</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,33 +58,30 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="quarto-light">
+<body class="floating quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#ideas" id="toc-ideas" class="nav-link active" data-scroll-target="#ideas">Ideas</a></li>
-  </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
-    </div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research Interests</h1>
+<h1 class="title">Counterfactual Visual GRPO</h1>
 </div>
 
 <div>
   <div class="description">
-    An overview of the topics and questions this lab is currently working on.
+    A one-line description shown under the title on the blogroll.
   </div>
 </div>
 
@@ -101,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 27, 2026</p>
+      <p class="date">June 29, 2026</p>
     </div>
   </div>
   
@@ -114,24 +111,8 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Write your post here.</p>
-<section id="ideas" class="level2">
-<h2 class="anchored" data-anchor-id="ideas">Ideas</h2>
-<ol type="1">
-<li><p>SDRM</p></li>
-<li><p>SiCPO</p></li>
-<li><p>RL on Cartridges</p></li>
-<li><p><strong>SDRM — Self-Distilled Reward Modeling:</strong> Uses a privileged version of the model to evaluate and compare its own on-policy outputs, then distills those judgments into a reusable reward model for RL—learning from self-evaluation rather than imitating teacher responses.</p></li>
-<li><p><strong>SiCPO — Self-Informed Critic Policy Optimization:</strong> Uses privileged post-outcome information to train a critic that assigns dense, step-level credit across a reasoning trajectory, identifying which intermediate decisions increased or decreased the probability of eventual success. Like an implicit value function with TD bootstrapping/Generalized Advantage Estimation (GAE).</p></li>
-<li><p><strong>RL on Cartridges:</strong> Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.</p></li>
-</ol>
-<ul>
-<li>SDRM: Can a model’s privileged self-knowledge be converted into a reliable reward signal without copying its answers?</li>
-<li>SiCPO: Can hindsight about final outcomes be used to assign accurate credit to individual reasoning decisions?</li>
-<li>CARL: Can useful agent behavior be learned through RL in a modular experience layer while leaving the base model frozen?</li>
-</ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

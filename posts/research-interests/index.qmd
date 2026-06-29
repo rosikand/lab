@@ -3,8 +3,10 @@ title: "Research Interests"
 author: "Your Name"
 date: "2026-06-27"
 description: "An overview of the topics and questions this lab is currently working on."
-toc: true
-toc-location: right
+# TOC is HTML-only; the PDF omits it (see posts/_metadata.yml).
+format:
+  html:
+    toc-location: right
 ---
 
 Write your post here.
@@ -23,3 +25,8 @@ Write your post here.
 2. **SiCPO — Self-Informed Critic Policy Optimization:** Uses privileged post-outcome information to train a critic that assigns dense, step-level credit across a reasoning trajectory, identifying which intermediate decisions increased or decreased the probability of eventual success. Like an implicit value function with TD bootstrapping/Generalized Advantage Estimation (GAE).  
 
 3. **RL on Cartridges:** Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.
+
+
+- SDRM: Can a model’s privileged self-knowledge be converted into a reliable reward signal without copying its answers?
+- SiCPO: Can hindsight about final outcomes be used to assign accurate credit to individual reasoning decisions?
+- CARL: Can useful agent behavior be learned through RL in a modular experience layer while leaving the base model frozen? 

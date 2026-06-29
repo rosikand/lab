@@ -7,3 +7,38 @@ description: "A one-line description shown under the title on the blogroll."
 
 Write your post here.
 
+The idea is to uses a privileged version of the model to evaluate and compare its own on-policy outputs, then distills those judgments into a reusable reward model for RL—learning from self-evaluation rather than imitating teacher responses.
+
+## Problems with Self-Distillation 
+
+We refer to [@tiwari2026onpolicy] and [@kim2026does], but briefly, here are some representative problems:
+
+- **Privileged-information leakage**: the model learns to reference hints, feedback, or solutions unavailable at inference time.
+- Diversity collapse 
+- **Supression of epistemic reasoning**: see [@kim2026does]. 
+
+
+### But why does ordinary OPD work? 
+
+Contrast: why a real teacher works
+
+On-policy distillation from a stronger same-family model or an RL-trained expert succeeds because that teacher is close to the reward-tilted optimum: it puts more probability on genuinely high-reward responses while staying close enough for the student to copy, so the dense token-level signal points the same way the sparse RL reward would, just cheaper. The self-teacher fails precisely because privileged conditioning produces a teacher far from that optimum, pointing the dense signal at a response shape the student can't ground.
+
+
+## Method 
+
+### SDRM-MSE 
+
+### SDRM-BT 
+
+### SDRM-GAIL 
+
+Apply RARO's framework[^raro] [@cai2025escaping]. The idea is to treat the teacher policy rollouts as expert demonstrations and then derive a reward signal from those expert demonstrations via IRL/GAIL. 
+
+[^raro] RARO (Relativistic Adversarial Reasoning Optimization) trains an LLM to reason from expert demonstrations without a hand-built verifier or preference labels by casting learning as an inverse-RL adversarial game. For each question, the policy generates an answer, while a reasoning critic compares it directly with the expert answer and predicts which is expert—or declares a tie. The critic receives reward for identifying the expert, and the policy receives reward when its answer is judged better or indistinguishable, so both are jointly updated with GRPO. In practice, RARO shares one LLM between the policy and critic, mixes both objectives in each training batch, and uses a replay buffer plus tie rewards to stabilize the continuously changing reward signal. 
+
+### OPSD-Cartridge 
+
+Idea is to distill the PI into a cartridge. 
+
+## Related work 

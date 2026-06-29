@@ -176,7 +176,7 @@ window.Quarto = {
   <li><a href="#closing-thoughts" id="toc-closing-thoughts" class="nav-link" data-scroll-target="#closing-thoughts">Closing thoughts</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -218,6 +218,9 @@ window.Quarto = {
 
 
 <p>Today’s leading language models contain upwards of a trillion parameters, pretrained on tens of trillions of tokens. The transformer architecture that underpins them <span class="citation" data-cites="vaswani2017attention">(<a href="#ref-vaswani2017attention" role="doc-biblioref">Vaswani et al. 2017</a>)</span> keeps improving with scale, as these trillions are necessary for learning and representing all the patterns in written-down human knowledge.</p>
+<!-- Explicit `.column-margin` asides aren't footnotes, so `reference-location`
+     can't relocate them. Show the margin version in HTML, and render the same
+     text inline (out of the margin) in the PDF. -->
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>This is a <strong>margin note</strong> — an unnumbered aside that lives in the right margin, just like on the reference site. Use it for tangents, definitions, or asides.</p>

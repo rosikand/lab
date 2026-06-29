@@ -1,5 +1,8 @@
 # Shared settings for all posts
 format:
+  # HTML is the primary (website) format and stays the default — it's listed
+  # first. PDF is rendered alongside it on every `quarto render`; the HTML
+  # sidebar automatically gets an "Other Formats → PDF" download link.
   html:
     # Article layout gives posts the right-hand margin column for sidenotes,
     # while the blogroll index stays full-width/centered.
@@ -19,5 +22,13 @@ format:
     toc-location: left
     toc-title: "Contents"
     toc-depth: 3
+  pdf:
+    # No table of contents in the PDF.
+    toc: false
+    # Pull footnotes/sidenotes out of the margin (they crowd the page in PDF)
+    # and render them as regular footnotes at the bottom of the page. This
+    # overrides the post-level `reference-location: margin` for PDF only.
+    reference-location: document
+    citation-location: document
 title-block-style: default
 

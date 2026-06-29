@@ -3,8 +3,10 @@ title: "Sample post"
 author: "Your Name"
 date: "2026-06-29"
 description: "A one-line description shown under the title on the blogroll."
-toc: true
-toc-location: right
+# TOC is HTML-only; the PDF omits it (see posts/_metadata.yml).
+format:
+  html:
+    toc-location: right
 ---
 
 Today's leading language models contain upwards of a trillion parameters,
@@ -13,9 +15,19 @@ underpins them [@vaswani2017attention] keeps improving with scale, as these
 trillions are necessary for learning and representing all the patterns in
 written-down human knowledge.
 
+<!-- Explicit `.column-margin` asides aren't footnotes, so `reference-location`
+     can't relocate them. Show the margin version in HTML, and render the same
+     text inline (out of the margin) in the PDF. -->
+::: {.content-visible when-format="html"}
 ::: {.column-margin}
 This is a **margin note** — an unnumbered aside that lives in the right margin,
 just like on the reference site. Use it for tangents, definitions, or asides.
+:::
+:::
+
+::: {.content-visible unless-format="html"}
+> **Aside.** This is a margin note — an unnumbered aside that, in the web
+> version, lives in the right margin. Use it for tangents, definitions, or asides.
 :::
 
 In contrast, post-training involves smaller datasets and generally focuses on

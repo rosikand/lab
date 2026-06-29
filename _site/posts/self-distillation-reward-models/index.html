@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,7 +85,24 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#problems-with-self-distillation" id="toc-problems-with-self-distillation" class="nav-link active" data-scroll-target="#problems-with-self-distillation">Problems with Self-Distillation</a>
+  <ul class="collapse">
+  <li><a href="#but-why-does-ordinary-opd-work" id="toc-but-why-does-ordinary-opd-work" class="nav-link" data-scroll-target="#but-why-does-ordinary-opd-work">But why does ordinary OPD work?</a></li>
+  </ul></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a>
+  <ul class="collapse">
+  <li><a href="#sdrm-mse" id="toc-sdrm-mse" class="nav-link" data-scroll-target="#sdrm-mse">SDRM-MSE</a></li>
+  <li><a href="#sdrm-bt" id="toc-sdrm-bt" class="nav-link" data-scroll-target="#sdrm-bt">SDRM-BT</a></li>
+  <li><a href="#sdrm-gail" id="toc-sdrm-gail" class="nav-link" data-scroll-target="#sdrm-gail">SDRM-GAIL</a></li>
+  <li><a href="#opsd-cartridge" id="toc-opsd-cartridge" class="nav-link" data-scroll-target="#opsd-cartridge">OPSD-Cartridge</a></li>
+  </ul></li>
+  <li><a href="#related-work" id="toc-related-work" class="nav-link" data-scroll-target="#related-work">Related work</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
@@ -111,10 +148,57 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Write your post here.</p>
+<p>The idea is to uses a privileged version of the model to evaluate and compare its own on-policy outputs, then distills those judgments into a reusable reward model for RL—learning from self-evaluation rather than imitating teacher responses.</p>
+<section id="problems-with-self-distillation" class="level2">
+<h2 class="anchored" data-anchor-id="problems-with-self-distillation">Problems with Self-Distillation</h2>
+<p>We refer to <span class="citation" data-cites="tiwari2026onpolicy">(<a href="#ref-tiwari2026onpolicy" role="doc-biblioref">Tiwari et al. 2026</a>)</span> and <span class="citation" data-cites="kim2026does">(<a href="#ref-kim2026does" role="doc-biblioref">Kim et al. 2026</a>)</span>, but briefly, here are some representative problems:</p>
+<ul>
+<li><strong>Privileged-information leakage</strong>: the model learns to reference hints, feedback, or solutions unavailable at inference time.</li>
+<li>Diversity collapse</li>
+<li><strong>Supression of epistemic reasoning</strong>: see <span class="citation" data-cites="kim2026does">(<a href="#ref-kim2026does" role="doc-biblioref">Kim et al. 2026</a>)</span>.</li>
+</ul>
+<section id="but-why-does-ordinary-opd-work" class="level3">
+<h3 class="anchored" data-anchor-id="but-why-does-ordinary-opd-work">But why does ordinary OPD work?</h3>
+<p>Contrast: why a real teacher works</p>
+<p>On-policy distillation from a stronger same-family model or an RL-trained expert succeeds because that teacher is close to the reward-tilted optimum: it puts more probability on genuinely high-reward responses while staying close enough for the student to copy, so the dense token-level signal points the same way the sparse RL reward would, just cheaper. The self-teacher fails precisely because privileged conditioning produces a teacher far from that optimum, pointing the dense signal at a response shape the student can’t ground.</p>
+</section>
+</section>
+<section id="method" class="level2">
+<h2 class="anchored" data-anchor-id="method">Method</h2>
+<section id="sdrm-mse" class="level3">
+<h3 class="anchored" data-anchor-id="sdrm-mse">SDRM-MSE</h3>
+</section>
+<section id="sdrm-bt" class="level3">
+<h3 class="anchored" data-anchor-id="sdrm-bt">SDRM-BT</h3>
+</section>
+<section id="sdrm-gail" class="level3">
+<h3 class="anchored" data-anchor-id="sdrm-gail">SDRM-GAIL</h3>
+<p>Apply RARO’s framework[^raro] <span class="citation" data-cites="cai2025escaping">(<a href="#ref-cai2025escaping" role="doc-biblioref">Cai and Provilkov 2025</a>)</span>. The idea is to treat the teacher policy rollouts as expert demonstrations and then derive a reward signal from those expert demonstrations via IRL/GAIL.</p>
+<p>[^raro] RARO (Relativistic Adversarial Reasoning Optimization) trains an LLM to reason from expert demonstrations without a hand-built verifier or preference labels by casting learning as an inverse-RL adversarial game. For each question, the policy generates an answer, while a reasoning critic compares it directly with the expert answer and predicts which is expert—or declares a tie. The critic receives reward for identifying the expert, and the policy receives reward when its answer is judged better or indistinguishable, so both are jointly updated with GRPO. In practice, RARO shares one LLM between the policy and critic, mixes both objectives in each training batch, and uses a replay buffer plus tie rewards to stabilize the continuously changing reward signal.</p>
+</section>
+<section id="opsd-cartridge" class="level3">
+<h3 class="anchored" data-anchor-id="opsd-cartridge">OPSD-Cartridge</h3>
+<p>Idea is to distill the PI into a cartridge.</p>
+</section>
+</section>
+<section id="related-work" class="level2">
 
 
 
-</main> <!-- /main -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Related work</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-cai2025escaping" class="csl-entry" role="listitem">
+Cai, Locke, and Ivan Provilkov. 2025. <span>“Escaping the Verifier: Learning to Reason via Demonstrations.”</span> <em>arXiv Preprint arXiv:2511.21667</em>.
+</div>
+<div id="ref-kim2026does" class="csl-entry" role="listitem">
+Kim, Jeonghye, Xufang Luo, Minbeom Kim, Sangmook Lee, Dohyung Kim, Jiwon Jeon, Dongsheng Li, and Yuqing Yang. 2026. <span>“Why Does Self-Distillation (Sometimes) Degrade the Reasoning Capability of LLMs?”</span> <em>arXiv Preprint arXiv:2603.24472</em>.
+</div>
+<div id="ref-tiwari2026onpolicy" class="csl-entry" role="listitem">
+Tiwari, Rishabh, Kusha Sareen, Devvrit Khatri, Lakshya Agrawal, Kurt Keutzer, Matei Zaharia, Inderjit S. Dhillon, and Rishabh Agarwal. 2026. <span>“<span class="nocase">Why On-Policy Distillation Works and Naive Self-Distillation Doesn’t</span>.”</span> X Article. <a href="https://x.com/rish2k1/status/2068414528598286485">https://x.com/rish2k1/status/2068414528598286485</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
