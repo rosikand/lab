@@ -3,6 +3,23 @@ title: "Research Interests"
 author: "Your Name"
 date: "2026-06-27"
 description: "An overview of the topics and questions this lab is currently working on."
+toc: true
+toc-location: right
 ---
 
 Write your post here.
+
+
+
+## Ideas 
+
+1. SDRM
+2. SiCPO 
+3. RL on Cartridges 
+
+
+1. **SDRM — Self-Distilled Reward Modeling:** Uses a privileged version of the model to evaluate and compare its own on-policy outputs, then distills those judgments into a reusable reward model for RL—learning from self-evaluation rather than imitating teacher responses.
+
+2. **SiCPO — Self-Informed Critic Policy Optimization:** Uses privileged post-outcome information to train a critic that assigns dense, step-level credit across a reasoning trajectory, identifying which intermediate decisions increased or decreased the probability of eventual success. Like an implicit value function with TD bootstrapping/Generalized Advantage Estimation (GAE).  
+
+3. **RL on Cartridges:** Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.

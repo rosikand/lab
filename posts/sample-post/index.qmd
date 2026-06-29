@@ -1,8 +1,10 @@
 ---
-title: "Defeating Nondeterminism in Your Writing Workflow"
-author: "Your Name in collaboration with others"
-date: "2026-06-20"
-description: "A placeholder post demonstrating the blog's typography, citations, footnotes, and sidenotes."
+title: "Sample post"
+author: "Your Name"
+date: "2026-06-29"
+description: "A one-line description shown under the title on the blogroll."
+toc: true
+toc-location: right
 ---
 
 Today's leading language models contain upwards of a trillion parameters,

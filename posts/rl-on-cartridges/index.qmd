@@ -1,0 +1,108 @@
+---
+title: "RL on Cartridges"
+author: "Your Name"
+date: "2026-06-28"
+description: "Continual Online Adapters to new Tasks via Modular Experience Cartridges through Reinforcement Learning"
+toc: true 
+toc-location: left
+---
+
+
+
+## Abstract 
+
+RL on Cartridges: Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.
+
+The high level idea is to apply *online* RLVR on top of the cartridge itself rather than the base policy. This should enable quasi-non-parametric adaption to new tasks, ability to learn from agent traces/environment feedback, and continually adapt to new tasks without forgetting. 
+
+We introduce **CARL** (chosen backcronym): **Cartridge Adaptation through Reinforcement Learning**. 
+
+
+## Introduction and Motivation 
+
+We want to learn from agent traces and environment feedback, and continually adapt to new tasks. 
+
+**Enterprise relevance**: 
+
+1. Customer-specific adaption 
+    - Instead of `θ → θ'`, you get `θ + C_customer`, where every enterprise has its own evolving cartridge.
+
+
+    ```
+    Base Model (shared)
+
+        +
+
+    Customer A cartridge
+    Customer B cartridge
+    Customer C cartridge
+    ```
+
+2. Cheaper RL 
+    - Base model = 70B params
+    - Cartridge = 40M params
+    - RL scales roughly with the number of trainable parameters and optimizer state. Updating the cartridge only is dramatically cheaper than updating the base model. 
+3. Fast continual learning
+    - Changing a cartridge can happen every hour upon the presence of new user data. 
+4. Isolation 
+    - Updating the model for one customer doesn't mess up the other customer 
+    - A bad RL update only damages one customer's cartridge. It doesn't catastrophically interfere with everyone else. 
+5. Many parallel variants during inference 
+    - Imagine OpenAI has 100,000 enterprises Each has different preferences. You cannot realistically keep 100,000 full models But you can keep 100,000 cartridges. 
+
+
+**Goals and research contributions**: 
+
+- Enable non-parametric[^quasi]  adaption to new tasks 
+- Learn from environment feedback/agent traces
+- Learn OOD tasks from context/information 
+- Continually adapt to new tasks without forgetting 
+
+
+
+[^quasi]: By non-parametric here, we mean that the core base model policy isn't being updated... just the cartridge itself. 
+
+
+### Related work 
+
+Cover:
+
+- PEFT/LoRA work 
+    - A key question of concern here is whether this idea is truly different than just doing LoRA 
+    - [@asawa2025train], [@asawa2026sieve]
+- Context distillation
+- Cartridges [@eyuboglu2025cartridges].
+    - SFT vs. RL analogy [^train-analogy] You can think of it like SFT + RL, where ordinary cartridges is like the base model that went through SFT and then CARL is like RLVR on top of the that (mid-training vs. post-training). 
+- Self-distillation 
+
+
+[^train-analogy]: You can think of it like SFT + RL, where ordinary cartridges is like the base model 
+
+
+
+## Method 
+
+## Research question 
+
+We'd want to test things like: 
+
+- **RQ1 (RL on Cartridges)**: can we improve on a task with just RL'ing the cartridge without modifying the base model itself? 
+- **RQ2 (OOD Generalization)**: can we add OOD information/context/hints into the cartridge, that doesn't exist in the base policy, to then reinforce during RLVR? Thereby expanding support/pass@k? 
+- **RQ3: (Continual Learning)**: can we sequentially train on new tasks via new cartridges without degrading performance or inducing catastrophic forgetting? 
+    - Could also be good to analyze the weight space geometry/sparsity of the updates (i.e., SFT forgets, RL doesn't) 
+- **RQ4 (Self-distillation)**: Cartridge OPSD: Use on-policy self-distillation to continually compile privileged experience into a trainable cartridge while keeping the base model frozen. Compare with RL optimizer. 
+
+
+## Experiments 
+
+
+### Datasets and benchmarks 
+
+- Continual Learning Bench [@asawa2026continual]
+
+
+## Results and discussion 
+
+s
+
+

@@ -1,0 +1,9 @@
+---
+title: "Self-Distillation Without Imitation: Bootstrapping Reward Models with Privileged Information"
+author: "Your Name"
+date: "2026-06-29"
+description: "A one-line description shown under the title on the blogroll."
+---
+
+Write your post here.
+

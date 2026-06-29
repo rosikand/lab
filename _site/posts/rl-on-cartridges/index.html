@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Your Name">
+<meta name="dcterms.date" content="2026-06-28">
+<meta name="description" content="Continual Online Adapters to new Tasks via Modular Experience Cartridges through Reinforcement Learning">
 
-<title>Connectionism</title>
+<title>RL on Cartridges – Connectionism</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,23 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-082720f0bee6e28f698ccfa3a90fc04b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-37d2cb56866e70ff42f2027820251f57.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-082720f0bee6e28f698ccfa3a90fc04b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-203d10b5aa11a9a13f392c941a919b03.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -52,169 +73,195 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<link rel="preconnect" href="../../">
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-blog-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-date','listing-description','listing-path',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
-      
-      searchColumns: ["listing-project","listing-website","listing-bibliography","listing-reference-location","listing-citation-location","listing-link-citations","listing-format","listing-language","listing-title-block-style","listing-title","listing-author","listing-date","listing-description","listing-toc","listing-toc-location","listing-path","listing-outputHref","listing-date-modified","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-blog-listing'] = new List('listing-blog-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-<link rel="preconnect" href="./">
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
-<body class="quarto-light">
+<body class="floating slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction-and-motivation" id="toc-introduction-and-motivation" class="nav-link" data-scroll-target="#introduction-and-motivation">Introduction and Motivation</a>
+  <ul class="collapse">
+  <li><a href="#related-work" id="toc-related-work" class="nav-link" data-scroll-target="#related-work">Related work</a></li>
+  </ul></li>
+  <li><a href="#method" id="toc-method" class="nav-link" data-scroll-target="#method">Method</a></li>
+  <li><a href="#research-question" id="toc-research-question" class="nav-link" data-scroll-target="#research-question">Research question</a></li>
+  <li><a href="#experiments" id="toc-experiments" class="nav-link" data-scroll-target="#experiments">Experiments</a>
+  <ul class="collapse">
+  <li><a href="#datasets-and-benchmarks" id="toc-datasets-and-benchmarks" class="nav-link" data-scroll-target="#datasets-and-benchmarks">Datasets and benchmarks</a></li>
+  </ul></li>
+  <li><a href="#results-and-discussion" id="toc-results-and-discussion" class="nav-link" data-scroll-target="#results-and-discussion">Results and discussion</a></li>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content page-columns page-full" id="quarto-document-content">
 
-
-
-
-<section id="research-lab" class="level1 blog-page-title tm-shell">
-<h1 class="blog-page-title">Research lab</h1>
-<div class="tm-intro">
-<p>A collection of notes, experiments, and writing on machine learning.</p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">RL on Cartridges</h1>
 </div>
-<div id="listing-blog-listing" class="quarto-listing quarto-listing-container-custom">
-<div class="tm-blogroll">
-<div class="post-group">
+
+<div>
+  <div class="description">
+    Continual Online Adapters to new Tasks via Modular Experience Cartridges through Reinforcement Learning
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your Name </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 28, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>RL on Cartridges: Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.</p>
+<p>The high level idea is to apply <em>online</em> RLVR on top of the cartridge itself rather than the base policy. This should enable quasi-non-parametric adaption to new tasks, ability to learn from agent traces/environment feedback, and continually adapt to new tasks without forgetting.</p>
+<p>We introduce <strong>CARL</strong> (chosen backcronym): <strong>Cartridge Adaptation through Reinforcement Learning</strong>.</p>
+</section>
+<section id="introduction-and-motivation" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="introduction-and-motivation">Introduction and Motivation</h2>
+<p>We want to learn from agent traces and environment feedback, and continually adapt to new tasks.</p>
+<p><strong>Enterprise relevance</strong>:</p>
+<ol type="1">
+<li>Customer-specific adaption
 <ul>
-<li>
-<a class="post-item-link" href="./posts/sample-post/index.html"> <time class="desktop-time">Jun 29, 2026</time>
-<div class="post-info">
-<div class="post-title">
-Sample post
-</div>
-<div class="author-date">
-A one-line description shown under the title on the blogroll.
-</div>
-<p><time class="mobile-time">Jun 29, 2026</time></p>
-</div>
-</a>
-</li>
-<li>
-<a class="post-item-link" href="./posts/self-distillation-reward-models/index.html"> <time class="desktop-time">Jun 29, 2026</time>
-<div class="post-info">
-<div class="post-title">
-Self-Distillation Without Imitation: Bootstrapping Reward Models with Privileged Information
-</div>
-<div class="author-date">
-A one-line description shown under the title on the blogroll.
-</div>
-<p><time class="mobile-time">Jun 29, 2026</time></p>
-</div>
-</a>
-</li>
-<li>
-<a class="post-item-link" href="./posts/rl-on-cartridges/index.html"> <time class="desktop-time">Jun 28, 2026</time>
-<div class="post-info">
-<div class="post-title">
-RL on Cartridges
-</div>
-<div class="author-date">
-Continual Online Adapters to new Tasks via Modular Experience Cartridges through Reinforcement Learning
-</div>
-<p><time class="mobile-time">Jun 28, 2026</time></p>
-</div>
-</a>
-</li>
-<li>
-<a class="post-item-link" href="./posts/research-interests/index.html"> <time class="desktop-time">Jun 27, 2026</time>
-<div class="post-info">
-<div class="post-title">
-Research Interests
-</div>
-<div class="author-date">
-An overview of the topics and questions this lab is currently working on.
-</div>
-<p><time class="mobile-time">Jun 27, 2026</time></p>
-</div>
-</a>
-</li>
+<li>Instead of <code>θ → θ'</code>, you get <code>θ + C_customer</code>, where every enterprise has its own evolving cartridge.</li>
 </ul>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
+<pre><code>Base Model (shared)
+
+    +
+
+Customer A cartridge
+Customer B cartridge
+Customer C cartridge</code></pre></li>
+<li>Cheaper RL
+<ul>
+<li>Base model = 70B params</li>
+<li>Cartridge = 40M params</li>
+<li>RL scales roughly with the number of trainable parameters and optimizer state. Updating the cartridge only is dramatically cheaper than updating the base model.</li>
+</ul></li>
+<li>Fast continual learning
+<ul>
+<li>Changing a cartridge can happen every hour upon the presence of new user data.</li>
+</ul></li>
+<li>Isolation
+<ul>
+<li>Updating the model for one customer doesn’t mess up the other customer</li>
+<li>A bad RL update only damages one customer’s cartridge. It doesn’t catastrophically interfere with everyone else.</li>
+</ul></li>
+<li>Many parallel variants during inference
+<ul>
+<li>Imagine OpenAI has 100,000 enterprises Each has different preferences. You cannot realistically keep 100,000 full models But you can keep 100,000 cartridges.</li>
+</ul></li>
+</ol>
+<p><strong>Goals and research contributions</strong>:</p>
+<ul>
+<li>Enable non-parametric<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> adaption to new tasks</li>
+<li>Learn from environment feedback/agent traces</li>
+<li>Learn OOD tasks from context/information</li>
+<li>Continually adapt to new tasks without forgetting</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;By non-parametric here, we mean that the core base model policy isn’t being updated… just the cartridge itself.</p></div></div><section id="related-work" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="related-work">Related work</h3>
+<p>Cover:</p>
+<ul>
+<li>PEFT/LoRA work
+<ul>
+<li>A key question of concern here is whether this idea is truly different than just doing LoRA</li>
+<li><span class="citation" data-cites="asawa2025train">(<a href="#ref-asawa2025train" role="doc-biblioref">Asawa et al. 2025</a>)</span>, <span class="citation" data-cites="asawa2026sieve">(<a href="#ref-asawa2026sieve" role="doc-biblioref">Asawa, Dimakis, and Zaharia 2026</a>)</span></li>
+</ul></li>
+<li>Context distillation</li>
+<li>Cartridges <span class="citation" data-cites="eyuboglu2025cartridges">(<a href="#ref-eyuboglu2025cartridges" role="doc-biblioref">Eyuboglu et al. 2025</a>)</span>.
+<ul>
+<li>SFT vs.&nbsp;RL analogy <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> You can think of it like SFT + RL, where ordinary cartridges is like the base model that went through SFT and then CARL is like RLVR on top of the that (mid-training vs.&nbsp;post-training).</li>
+</ul></li>
+<li>Self-distillation</li>
+</ul>
+<div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;You can think of it like SFT + RL, where ordinary cartridges is like the base model</p></div></div></section>
+</section>
+<section id="method" class="level2">
+<h2 class="anchored" data-anchor-id="method">Method</h2>
+</section>
+<section id="research-question" class="level2">
+<h2 class="anchored" data-anchor-id="research-question">Research question</h2>
+<p>We’d want to test things like:</p>
+<ul>
+<li><strong>RQ1 (RL on Cartridges)</strong>: can we improve on a task with just RL’ing the cartridge without modifying the base model itself?</li>
+<li><strong>RQ2 (OOD Generalization)</strong>: can we add OOD information/context/hints into the cartridge, that doesn’t exist in the base policy, to then reinforce during RLVR? Thereby expanding support/pass@k?</li>
+<li><strong>RQ3: (Continual Learning)</strong>: can we sequentially train on new tasks via new cartridges without degrading performance or inducing catastrophic forgetting?
+<ul>
+<li>Could also be good to analyze the weight space geometry/sparsity of the updates (i.e., SFT forgets, RL doesn’t)</li>
+</ul></li>
+<li><strong>RQ4 (Self-distillation)</strong>: Cartridge OPSD: Use on-policy self-distillation to continually compile privileged experience into a trainable cartridge while keeping the base model frozen. Compare with RL optimizer.</li>
+</ul>
+</section>
+<section id="experiments" class="level2">
+<h2 class="anchored" data-anchor-id="experiments">Experiments</h2>
+<section id="datasets-and-benchmarks" class="level3">
+<h3 class="anchored" data-anchor-id="datasets-and-benchmarks">Datasets and benchmarks</h3>
+<ul>
+<li>Continual Learning Bench <span class="citation" data-cites="asawa2026continual">(<a href="#ref-asawa2026continual" role="doc-biblioref">Asawa et al. 2026</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="results-and-discussion" class="level2">
+<h2 class="anchored" data-anchor-id="results-and-discussion">Results and discussion</h2>
+<p>s</p>
+
+
+
 </section>
 
 
-
-
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-asawa2026sieve" class="csl-entry" role="listitem">
+Asawa, Parth, Alexandros G Dimakis, and Matei Zaharia. 2026. <span>“SIEVE: Sample-Efficient Parametric Learning from Natural Language.”</span> <em>arXiv Preprint arXiv:2604.02339</em>.
+</div>
+<div id="ref-asawa2026continual" class="csl-entry" role="listitem">
+Asawa, Parth, Christopher M Glaze, Gabriel Orlanski, Ramya Ramakrishnan, Benji Xu, Asim Biswal, Vincent Sunn Chen, Frederic Sala, Matei Zaharia, and Joseph E Gonzalez. 2026. <span>“Continual Learning Bench: Evaluating Frontier AI Systems in Real-World Stateful Environments.”</span> <em>arXiv Preprint arXiv:2606.05661</em>.
+</div>
+<div id="ref-asawa2025train" class="csl-entry" role="listitem">
+Asawa, Parth, Alan Zhu, Abigail O’Neill, Matei Zaharia, Alexandros G Dimakis, and Joseph E Gonzalez. 2025. <span>“How to Train Your Advisor: Steering Black-Box Llms with Advisor Models.”</span> <em>arXiv Preprint arXiv:2510.02453</em>.
+</div>
+<div id="ref-eyuboglu2025cartridges" class="csl-entry" role="listitem">
+Eyuboglu, Sabri, Ryan Ehrlich, Simran Arora, Neel Guha, Dylan Zinsley, Emily Liu, Will Tennien, et al. 2025. <span>“Cartridges: Lightweight and General-Purpose Long Context Representations via Self-Study.”</span> <em>arXiv Preprint arXiv:2506.06266</em>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

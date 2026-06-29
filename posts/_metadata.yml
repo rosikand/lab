@@ -4,11 +4,15 @@ format:
     # Article layout gives posts the right-hand margin column for sidenotes,
     # while the blogroll index stays full-width/centered.
     page-layout: article
+    # The side columns are fixed-width while the body column is flexible, so when
+    # the viewport can't fit sidebar + body + margin + gutters the *body* is what
+    # shrinks. Keeping the side columns trim lets the body hold its full width on
+    # more screens (the TOC text is short, so it doesn't need much room).
     grid:
-      sidebar-width: 240px   # left column — holds the table of contents
-      body-width: 680px
-      margin-width: 260px    # right column — holds sidenotes
-      gutter-width: 2rem
+      sidebar-width: 275px   # left column — holds the table of contents; defaut: 200px 
+      body-width: 780px  # defaut: 680px 
+      margin-width: 220px    # right column — holds sidenotes; default: 220px 
+      gutter-width: 1.5rem  # default: 1.5rem 
     # TOC is on by default and sits in the left column. To disable it for a
     # single post, add `toc: false` to that post's YAML front matter.
     toc: true
@@ -16,3 +20,4 @@ format:
     toc-title: "Contents"
     toc-depth: 3
 title-block-style: default
+

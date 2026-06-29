@@ -2,9 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/research-interests/index.html",
-      "/posts/welcome/index.html",
-      "/posts/sample-research/index.html"
+      "/posts/sample-post/index.html",
+      "/posts/self-distillation-reward-models/index.html",
+      "/posts/rl-on-cartridges/index.html",
+      "/posts/research-interests/index.html"
     ]
   }
 ]

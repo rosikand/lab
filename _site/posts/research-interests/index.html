@@ -8,6 +8,7 @@
 
 <meta name="author" content="Your Name">
 <meta name="dcterms.date" content="2026-06-27">
+<meta name="description" content="An overview of the topics and questions this lab is currently working on.">
 
 <title>Research Interests – Connectionism</title>
 <style>
@@ -36,7 +37,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-082720f0bee6e28f698ccfa3a90fc04b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-112a1866353e923c4beaa19224a3ca32.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-203d10b5aa11a9a13f392c941a919b03.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -57,18 +58,21 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="floating quarto-light">
+<body class="quarto-light">
 
 <div id="quarto-search-results"></div>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#ideas" id="toc-ideas" class="nav-link active" data-scroll-target="#ideas">Ideas</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -78,6 +82,11 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">Research Interests</h1>
 </div>
 
+<div>
+  <div class="description">
+    An overview of the topics and questions this lab is currently working on.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -105,8 +114,19 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Write your post here.</p>
+<section id="ideas" class="level2">
+<h2 class="anchored" data-anchor-id="ideas">Ideas</h2>
+<ol type="1">
+<li><p>SDRM</p></li>
+<li><p>SiCPO</p></li>
+<li><p>RL on Cartridges</p></li>
+<li><p><strong>SDRM — Self-Distilled Reward Modeling:</strong> Uses a privileged version of the model to evaluate and compare its own on-policy outputs, then distills those judgments into a reusable reward model for RL—learning from self-evaluation rather than imitating teacher responses.</p></li>
+<li><p><strong>SiCPO — Self-Informed Critic Policy Optimization:</strong> Uses privileged post-outcome information to train a critic that assigns dense, step-level credit across a reasoning trajectory, identifying which intermediate decisions increased or decreased the probability of eventual success. Like an implicit value function with TD bootstrapping/Generalized Advantage Estimation (GAE).</p></li>
+<li><p><strong>RL on Cartridges:</strong> Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
