@@ -1,0 +1,12 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/sample-post/index.html",
+      "/posts/self-distillation-reward-models/index.html",
+      "/posts/counterfactual-visual-grpo/index.html",
+      "/posts/rl-on-cartridges/index.html",
+      "/posts/research-interests/index.html"
+    ]
+  }
+]

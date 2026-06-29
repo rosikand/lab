@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rosikand.github.io/lab/index.html</loc>
+    <lastmod>2026-06-27T08:14:18.701Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rosikand.github.io/lab/posts/research-interests/index.html</loc>
+    <lastmod>2026-06-29T11:58:11.530Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rosikand.github.io/lab/posts/self-distillation-reward-models/index.html</loc>
+    <lastmod>2026-06-29T11:44:59.754Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rosikand.github.io/lab/posts/sample-post/index.html</loc>
+    <lastmod>2026-06-29T09:26:37.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rosikand.github.io/lab/posts/rl-on-cartridges/index.html</loc>
+    <lastmod>2026-06-29T11:50:41.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rosikand.github.io/lab/posts/counterfactual-visual-grpo/index.html</loc>
+    <lastmod>2026-06-29T08:37:52.469Z</lastmod>
+  </url>
+</urlset>

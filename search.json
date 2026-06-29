@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Research lab",
+    "section": "",
+    "text": "Research lab\n\nA collection of notes, experiments, and writing on machine learning.\n\n\n\n\n\n\n Jun 29, 2026\n\n\nSample post\n\n\nA one-line description shown under the title on the blogroll.\n\nJun 29, 2026\n\n\n\n\n Jun 29, 2026\n\n\nSelf-Distillation Without Imitation: Bootstrapping Reward Models with Privileged Information\n\n\nA one-line description shown under the title on the blogroll.\n\nJun 29, 2026\n\n\n\n\n Jun 29, 2026\n\n\nCounterfactual Visual GRPO\n\n\nA one-line description shown under the title on the blogroll.\n\nJun 29, 2026\n\n\n\n\n Jun 28, 2026\n\n\nRL on Cartridges\n\n\nContinual Online Adapters to new Tasks via Modular Experience Cartridges through Reinforcement Learning\n\nJun 28, 2026\n\n\n\n\n Jun 27, 2026\n\n\nResearch Interests\n\n\nAn overview of the topics and questions this lab is currently working on.\n\nJun 27, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/research-interests/index.html",
+    "href": "posts/research-interests/index.html",
+    "title": "Research Interests",
+    "section": "",
+    "text": "Write your post here."
+  },
+  {
+    "objectID": "posts/research-interests/index.html#ideas",
+    "href": "posts/research-interests/index.html#ideas",
+    "title": "Research Interests",
+    "section": "Ideas",
+    "text": "Ideas\n\nSDRM\nSiCPO\nRL on Cartridges\nSDRM — Self-Distilled Reward Modeling: Uses a privileged version of the model to evaluate and compare its own on-policy outputs, then distills those judgments into a reusable reward model for RL—learning from self-evaluation rather than imitating teacher responses.\nSiCPO — Self-Informed Critic Policy Optimization: Uses privileged post-outcome information to train a critic that assigns dense, step-level credit across a reasoning trajectory, identifying which intermediate decisions increased or decreased the probability of eventual success. Like an implicit value function with TD bootstrapping/Generalized Advantage Estimation (GAE).\nRL on Cartridges: Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.\n\n\nSDRM: Can a model’s privileged self-knowledge be converted into a reliable reward signal without copying its answers?\nSiCPO: Can hindsight about final outcomes be used to assign accurate credit to individual reasoning decisions?\nCARL: Can useful agent behavior be learned through RL in a modular experience layer while leaving the base model frozen?"
+  },
+  {
+    "objectID": "posts/self-distillation-reward-models/index.html",
+    "href": "posts/self-distillation-reward-models/index.html",
+    "title": "Self-Distillation Without Imitation: Bootstrapping Reward Models with Privileged Information",
+    "section": "",
+    "text": "Write your post here.\nThe idea is to uses a privileged version of the model to evaluate and compare its own on-policy outputs, then distills those judgments into a reusable reward model for RL—learning from self-evaluation rather than imitating teacher responses."
+  },
+  {
+    "objectID": "posts/self-distillation-reward-models/index.html#problems-with-self-distillation",
+    "href": "posts/self-distillation-reward-models/index.html#problems-with-self-distillation",
+    "title": "Self-Distillation Without Imitation: Bootstrapping Reward Models with Privileged Information",
+    "section": "Problems with Self-Distillation",
+    "text": "Problems with Self-Distillation\nWe refer to (Tiwari et al. 2026) and (Kim et al. 2026), but briefly, here are some representative problems:\n\nPrivileged-information leakage: the model learns to reference hints, feedback, or solutions unavailable at inference time.\nDiversity collapse\nSupression of epistemic reasoning: see (Kim et al. 2026).\n\n\nBut why does ordinary OPD work?\nContrast: why a real teacher works\nOn-policy distillation from a stronger same-family model or an RL-trained expert succeeds because that teacher is close to the reward-tilted optimum: it puts more probability on genuinely high-reward responses while staying close enough for the student to copy, so the dense token-level signal points the same way the sparse RL reward would, just cheaper. The self-teacher fails precisely because privileged conditioning produces a teacher far from that optimum, pointing the dense signal at a response shape the student can’t ground."
+  },
+  {
+    "objectID": "posts/self-distillation-reward-models/index.html#method",
+    "href": "posts/self-distillation-reward-models/index.html#method",
+    "title": "Self-Distillation Without Imitation: Bootstrapping Reward Models with Privileged Information",
+    "section": "Method",
+    "text": "Method\n\nSDRM-MSE\n\n\nSDRM-BT\n\n\nSDRM-GAIL\nApply RARO’s framework[^raro] (Cai and Provilkov 2025). The idea is to treat the teacher policy rollouts as expert demonstrations and then derive a reward signal from those expert demonstrations via IRL/GAIL.\n[^raro] RARO (Relativistic Adversarial Reasoning Optimization) trains an LLM to reason from expert demonstrations without a hand-built verifier or preference labels by casting learning as an inverse-RL adversarial game. For each question, the policy generates an answer, while a reasoning critic compares it directly with the expert answer and predicts which is expert—or declares a tie. The critic receives reward for identifying the expert, and the policy receives reward when its answer is judged better or indistinguishable, so both are jointly updated with GRPO. In practice, RARO shares one LLM between the policy and critic, mixes both objectives in each training batch, and uses a replay buffer plus tie rewards to stabilize the continuously changing reward signal.\n\n\nOPSD-Cartridge\nIdea is to distill the PI into a cartridge."
+  },
+  {
+    "objectID": "posts/sample-post/index.html",
+    "href": "posts/sample-post/index.html",
+    "title": "Sample post",
+    "section": "",
+    "text": "Today’s leading language models contain upwards of a trillion parameters, pretrained on tens of trillions of tokens. The transformer architecture that underpins them (Vaswani et al. 2017) keeps improving with scale, as these trillions are necessary for learning and representing all the patterns in written-down human knowledge.\nIn contrast, post-training involves smaller datasets and generally focuses on narrower domains of knowledge.1 This post is a placeholder that demonstrates the typography and layout of the blog, including citations, footnotes, and sidenotes."
+  },
+  {
+    "objectID": "posts/sample-post/index.html#a-second-level-heading",
+    "href": "posts/sample-post/index.html#a-second-level-heading",
+    "title": "Sample post",
+    "section": "A second-level heading",
+    "text": "A second-level heading\nBody copy is set in Iowan Old Style at 17px with a generous line height, matching the reference design. Links like this one pick up the subtle underline treatment, and inline code is rendered in red monospace.\n\nAn italic third-level heading\nLists use square bullets:\n\nFirst point about something interesting\nSecond point with a bit more detail\nThird point to round things out\n\n\nBlock quotes are styled with a thin left rule and a muted foreground color, exactly as on the reference site."
+  },
+  {
+    "objectID": "posts/sample-post/index.html#math-and-code",
+    "href": "posts/sample-post/index.html#math-and-code",
+    "title": "Sample post",
+    "section": "Math and code",
+    "text": "Math and code\nInline math such as e^{i\\pi} + 1 = 0 renders via KaTeX, and display math works too:\n\n\\mathcal{L}(\\theta) = \\mathbb{E}_{x \\sim \\mathcal{D}}\\big[ -\\log p_\\theta(x) \\big]\n\nA fenced code block, here distilling a teacher into a student (Hinton, Vinyals, and Dean 2015):\ndef distill(student, teacher, batch):\n    logits_s = student(batch)\n    logits_t = teacher(batch).detach()\n    return kl_divergence(logits_s, logits_t)"
+  },
+  {
+    "objectID": "posts/sample-post/index.html#closing-thoughts",
+    "href": "posts/sample-post/index.html#closing-thoughts",
+    "title": "Sample post",
+    "section": "Closing thoughts",
+    "text": "Closing thoughts\nReplace this file with your real writing. New posts dropped into posts/ show up on the blogroll automatically. Add references to references.bib and cite them with [@key]; footnotes ([^id]) and ::: {.column-margin} blocks both surface in the right margin."
+  },
+  {
+    "objectID": "posts/sample-post/index.html#references",
+    "href": "posts/sample-post/index.html#references",
+    "title": "Sample post",
+    "section": "References",
+    "text": "References\n\n\nHinton, Geoffrey, Oriol Vinyals, and Jeff Dean. 2015. “Distilling the Knowledge in a Neural Network.” arXiv Preprint arXiv:1503.02531.\n\n\nVaswani, Ashish, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017. “Attention Is All You Need.” Advances in Neural Information Processing Systems."
+  },
+  {
+    "objectID": "posts/rl-on-cartridges/index.html",
+    "href": "posts/rl-on-cartridges/index.html",
+    "title": "RL on Cartridges",
+    "section": "",
+    "text": "RL on Cartridges: Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.\nThe high level idea is to apply online RLVR on top of the cartridge itself rather than the base policy. This should enable quasi-non-parametric adaption to new tasks, ability to learn from agent traces/environment feedback, and continually adapt to new tasks without forgetting.\nWe introduce CARL (chosen backcronym): Cartridge Adaptation through Reinforcement Learning."
+  },
+  {
+    "objectID": "posts/rl-on-cartridges/index.html#abstract",
+    "href": "posts/rl-on-cartridges/index.html#abstract",
+    "title": "RL on Cartridges",
+    "section": "",
+    "text": "RL on Cartridges: Freezes the base model and applies reinforcement learning directly to a small customer- or task-specific memory module, such as a learned KV-cache cartridge, so it acquires specialized agent skills without modifying the full model.\nThe high level idea is to apply online RLVR on top of the cartridge itself rather than the base policy. This should enable quasi-non-parametric adaption to new tasks, ability to learn from agent traces/environment feedback, and continually adapt to new tasks without forgetting.\nWe introduce CARL (chosen backcronym): Cartridge Adaptation through Reinforcement Learning."
+  },
+  {
+    "objectID": "posts/rl-on-cartridges/index.html#introduction-and-motivation",
+    "href": "posts/rl-on-cartridges/index.html#introduction-and-motivation",
+    "title": "RL on Cartridges",
+    "section": "Introduction and Motivation",
+    "text": "Introduction and Motivation\nWe want to learn from agent traces and environment feedback, and continually adapt to new tasks.\nEnterprise relevance:\n\nCustomer-specific adaption\n\nInstead of θ → θ', you get θ + C_customer, where every enterprise has its own evolving cartridge.\n\nBase Model (shared)\n\n    +\n\nCustomer A cartridge\nCustomer B cartridge\nCustomer C cartridge\nCheaper RL\n\nBase model = 70B params\nCartridge = 40M params\nRL scales roughly with the number of trainable parameters and optimizer state. Updating the cartridge only is dramatically cheaper than updating the base model.\n\nFast continual learning\n\nChanging a cartridge can happen every hour upon the presence of new user data.\n\nIsolation\n\nUpdating the model for one customer doesn’t mess up the other customer\nA bad RL update only damages one customer’s cartridge. It doesn’t catastrophically interfere with everyone else.\n\nMany parallel variants during inference\n\nImagine OpenAI has 100,000 enterprises Each has different preferences. You cannot realistically keep 100,000 full models But you can keep 100,000 cartridges.\n\n\nGoals and research contributions:\n\nEnable non-parametric1 adaption to new tasks\nLearn from environment feedback/agent traces\nLearn OOD tasks from context/information\nContinually adapt to new tasks without forgetting\n\n1 By non-parametric here, we mean that the core base model policy isn’t being updated… just the cartridge itself.\nRelated work\nCover:\n\nPEFT/LoRA work\n\nA key question of concern here is whether this idea is truly different than just doing LoRA\n(Asawa et al. 2025), (Asawa, Dimakis, and Zaharia 2026)\n\nContext distillation\nCartridges (Eyuboglu et al. 2025).\n\nSFT vs. RL analogy 2 You can think of it like SFT + RL, where ordinary cartridges is like the base model that went through SFT and then CARL is like RLVR on top of the that (mid-training vs. post-training).\n\nSelf-distillation\n\n2 You can think of it like SFT + RL, where ordinary cartridges is like the base model"
+  },
+  {
+    "objectID": "posts/rl-on-cartridges/index.html#method",
+    "href": "posts/rl-on-cartridges/index.html#method",
+    "title": "RL on Cartridges",
+    "section": "Method",
+    "text": "Method"
+  },
+  {
+    "objectID": "posts/rl-on-cartridges/index.html#research-question",
+    "href": "posts/rl-on-cartridges/index.html#research-question",
+    "title": "RL on Cartridges",
+    "section": "Research question",
+    "text": "Research question\nWe’d want to test things like:\n\nRQ1 (RL on Cartridges): can we improve on a task with just RL’ing the cartridge without modifying the base model itself? That is, can reinforcement learning applied only to an experience cartridge achieve task adaptation comparable to updating the full model or a LoRA adapter?\nRQ2 (OOD Generalization): can we add OOD information/context/hints3 into the cartridge, that doesn’t exist in the base policy, to then reinforce during RLVR? Thereby expanding support/pass@k?\nRQ3: (Continual Learning): can we sequentially train on new tasks via new cartridges without degrading performance or inducing catastrophic forgetting?\n\nCould also be good to analyze the weight space geometry/sparsity of the updates (i.e., SFT forgets, RL doesn’t)\n\nRQ4 (Self-distillation): Cartridge OPSD: Use on-policy self-distillation to continually compile privileged experience into a trainable cartridge while keeping the base model frozen. Compare with RL optimizer.\n\n3 For more on distilling hints into the policy to induce a learning signal for RL to reinforce, see (Qu et al. 2026)."
+  },
+  {
+    "objectID": "posts/rl-on-cartridges/index.html#experiments",
+    "href": "posts/rl-on-cartridges/index.html#experiments",
+    "title": "RL on Cartridges",
+    "section": "Experiments",
+    "text": "Experiments\n\nDatasets and benchmarks\n\nContinual Learning Bench (Asawa et al. 2026)"
+  },
+  {
+    "objectID": "posts/rl-on-cartridges/index.html#results-and-discussion",
+    "href": "posts/rl-on-cartridges/index.html#results-and-discussion",
+    "title": "RL on Cartridges",
+    "section": "Results and discussion",
+    "text": "Results and discussion\ns"
+  },
+  {
+    "objectID": "posts/counterfactual-visual-grpo/index.html",
+    "href": "posts/counterfactual-visual-grpo/index.html",
+    "title": "Counterfactual Visual GRPO",
+    "section": "",
+    "text": "Write your post here."
+  }
+]
